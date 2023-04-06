@@ -1,0 +1,21 @@
+<form method="post" action="/s2d8wbhmx9miokrfn4j7/edit">
+    <label>title</label>
+    <br>
+    <input name="title" value="{{ data.title }}">
+    <br>
+    <label>Description</label>
+    <br>
+    <textarea type='text' rows="4" cols="50" name="dis">{{ data.excerpt }}</textarea>
+    <br>
+    <label> image url </label>
+    <input name="url" type="url" value="{{ data.thumbnail_url }}">
+    <br>
+    <label>Markdown</label>
+    <br>
+    <textarea type='text' rows="100" cols="100" name="text">{{ data.content }}</textarea>
+    <br>
+    <br>
+    <input type="hidden" value="{{ value }}" name="num">
+    <input type="hidden" value="{{ idd }}" name="id">
+    <button type="submit">Save</button>
+</form>

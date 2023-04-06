@@ -3,26 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Node.js News</title> 
+    <title>Peoples American Press</title> 
     <link rel="stylesheet" href="/css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    
 </head>
 <body>
     <header class="header">
-        <div class="header__logo">Node.Js News</div>
+        <a class="new" href="/">Peoples American Press</a>
         <%- include('./partials/search.ejs') %>
     </header>
 
     <div class="wrapper">
         <div class="news-single">
                 <a href="/">&larr;- Back</a>
+		<p> Views: <%- article.times %> </p>
                 <% if(article != null) { %>
-                    <h2><%- article.title.rendered %></h2>
-                    <p><%- article.content.rendered %></p>
+                    <h2><%- article.title %></h2>
+                    <p style="font-size:12px;"><%- article.content %></p>
                 <% } else { %>
                     No posts found.
                 <% } %>
         </div>
     </div>  
+    <div class="wrapper">
+    <div class="wrapper">
+    <div class="wrapper">
+    <div class="wrapper">
+    <form action ="" id="form" method="post">
+        <label for="fname">Your name:</label><br>
+        <input type="text" id="author" name="author"><br>
+        <label for="lname">Comment</label><br>
+        <input type="text" id="body" name="body">
+        <input type="hidden" id="id" name="id" value="">
+        <input type="submit">
+      </form>
+    <script>
+        var id = window.location.href.split("/")[4].split("?")[0];
+        document.getElementById("form").action = "/article/" + id
+    </script>
+    <br>
+    <label>Comments:</label>
+    </div>
+    </div>  
+    </div>
+    </div>      
+    <% for (var i = 0; i < comments.length; i++) { %>
+        <div class="wrapper">
+        <div class="news-single">
+        <h1 id="title"><%- comments[i].author %></h2>
+        <p><%- comments[i].body %></p>
+        </div>
+        </div>
+        <br>
+    <% } %>
 </body>
 </html> 
